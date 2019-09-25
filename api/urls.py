@@ -11,5 +11,6 @@ router.register('UserProfileViewSet', views.UserProfileViewSet)
 
 urlpatterns = [
     path('todoapiview', views.todoviews.as_view() ),
+    path('login/', views.UserLoginViewSet.as_view()),
     path('', include(router.urls))
 ]
