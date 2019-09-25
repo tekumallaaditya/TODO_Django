@@ -5,9 +5,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import viewsets
+from rest_framework.authentication import TokenAuthentication
 
 
 from api import serializers
+from api import permissions
 
 from .models import todomodel
 
@@ -70,6 +72,8 @@ class todoviewset(viewsets.ViewSet):
 class UserProfileViewSet(viewsets.ModelViewSet):
     serializer_class= serializers.UserProfileSerializer
     queryset = User.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (permissions.UserUpdatePermission,)
 
 
 
