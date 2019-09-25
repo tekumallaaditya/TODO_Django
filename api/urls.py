@@ -1,7 +1,15 @@
 from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 
-from .views import todoviews
+from api import views
+
+
+
+router = DefaultRouter()
+router.register('todoViewSet', views.todoviewset, base_name='todoViewSet')
+router.register('UserProfileViewSet', views.UserProfileViewSet)
 
 urlpatterns = [
-    path('', todoviews.as_view() ),
+    path('todoapiview', views.todoviews.as_view() ),
+    path('', include(router.urls))
 ]

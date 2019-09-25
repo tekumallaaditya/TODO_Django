@@ -20,5 +20,5 @@ import api.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('todoapi/', include('api.urls'))
+    path('', include('api.urls'))
 ]
